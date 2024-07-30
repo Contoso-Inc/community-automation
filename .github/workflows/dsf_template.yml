@@ -28,6 +28,14 @@ on:
         description: Environment Subscription
         type: string
         required: false
+      _entity_API_spec_openAPISpec:
+        description: The OpenAPI specification document that defines the API
+        type: string
+        required: false
+      _entity_API_metadata_name:
+        description: The name of the API.
+        type: string
+        required: false
 
 env:
   description: This workflow is uses chaos studio to test front end applications
