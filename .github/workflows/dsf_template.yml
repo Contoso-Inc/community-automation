@@ -1,0 +1,49 @@
+name: Chaos test front end apps
+
+on:
+  workflow_dispatch:
+    inputs:
+      regular_number:
+        description: Regular Number
+        type: number
+        required: true
+      regular_boolean:
+        description: Regular Boolean
+        type: boolean
+        required: true
+      regular_string:
+        description: Regular String
+        type: string
+        required: true
+        default: hello
+      _entity_repository_metadata_name:
+        description: Respository Name
+        type: string
+        required: true
+      _entity_environment_spec_ResourceGroup:
+        description: Environment Resource Group
+        type: string
+        required: false
+      _entity_environment_spec_Subscription:
+        description: Environment Subscription
+        type: string
+        required: false
+
+env:
+  description: This workflow is used to use chaos studio for front end testing
+
+jobs:
+  log:
+    runs-on: ubuntu-latest
+
+    steps:
+      - run: |
+          echo "### Inputs" >> $GITHUB_STEP_SUMMARY
+          echo "| input | value |" >> $GITHUB_STEP_SUMMARY
+          echo "| ----- | ----- |" >> $GITHUB_STEP_SUMMARY
+          echo "| regular_number | ${{ inputs.regular_number }} |" >> $GITHUB_STEP_SUMMARY
+          echo "| regular_boolean | ${{ inputs.regular_boolean }} |" >> $GITHUB_STEP_SUMMARY
+          echo "| regular_string | ${{ inputs.regular_string }} |" >> $GITHUB_STEP_SUMMARY
+          echo "| _entity_repository_metadata_name | ${{ inputs._entity_repository_metadata_name }} |" >> $GITHUB_STEP_SUMMARY
+          echo "| _entity_environment_spec_ResourceGroup | ${{ inputs._entity_environment_spec_ResourceGroup }} |" >> $GITHUB_STEP_SUMMARY
+          echo "| _entity_environment_spec_Subscription | ${{ inputs._entity_environment_spec_Subscription }} |" >> $GITHUB_STEP_SUMMARY
